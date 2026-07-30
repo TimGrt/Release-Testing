@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get current date and format to CalVer string
-        run: echo "release_tag=$(date +'%Y.%m.%d') >> "$GITHUB_OUTPUT"
+        run: echo "release_tag=$(date +'%Y.%m.%d')" >> "$GITHUB_OUTPUT"
         id: release_tag_definition
       - name: Output date
         run: echo "${{ steps.release_tag_definition.outputs.release_tag }}"
