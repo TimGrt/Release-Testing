@@ -6,7 +6,7 @@ permissions:
   contents: write
 jobs:
   release:
-    name: Create release from main branch
+    name: Create release from main
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
