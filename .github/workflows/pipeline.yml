@@ -1,0 +1,15 @@
+---
+name: Pipeline
+on:
+  workflow_dispatch:
+jobs:
+  release:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date and format to CalVer string
+        run: date +'%Y.%m.%d'
+        id: release_tag
+      - name: Output date
+        run: echo ${{ steps.release_tag.outputs.stdout }}
+        
