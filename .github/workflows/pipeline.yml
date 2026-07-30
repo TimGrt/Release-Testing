@@ -11,5 +11,5 @@ jobs:
         run: echo "release_tag=$(date +'%Y.%m.%d') >> "$GITHUB_OUTPUT"
         id: release_tag_definition
       - name: Output date
-        run: echo "${{ steps.release_tag.outputs.release_tag }}"
+        run: echo "${{ steps.release_tag_definition.outputs.release_tag }}"
         
