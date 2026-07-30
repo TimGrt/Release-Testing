@@ -1,7 +1,9 @@
 ---
-name: Pipeline
+name: Create release
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   release:
     name: Create release
@@ -11,5 +13,11 @@ jobs:
         run: echo "release_tag=$(date +'%Y.%m.%d')" >> "$GITHUB_OUTPUT"
         id: release_tag_definition
       - name: Output date
-        run: echo "${{ steps.release_tag_definition.outputs.release_tag }}"
-        
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.release_tag_definition.outputs.release_tag }}" \
+              --repo="$GITHUIB_REPOSITORY" \
+              --title="${{ steps.release_tag_definition.outputs.release_tag }}" \
+              --generate-notes
+              --fail-on-no-commits
