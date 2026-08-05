@@ -24,3 +24,5 @@ jobs:
               --title="${{ steps.release_tag_definition.outputs.release_tag }}" \
               --generate-notes \
               --fail-on-no-commits
+  call-deployment:
+    uses: ./.github/workflows/deployment.yml
