@@ -25,4 +25,10 @@ jobs:
               --generate-notes \
               --fail-on-no-commits
   call-deployment:
+    needs: release
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+      packages: write
     uses: ./.github/workflows/deployment.yml
