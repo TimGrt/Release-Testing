@@ -40,6 +40,8 @@ jobs:
       - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v5
         id: deployment
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
 
   # Commented until Packages can be published publicly, currently they are private by default
   # publish_to_github_packages:
