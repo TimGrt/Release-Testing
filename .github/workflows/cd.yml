@@ -40,6 +40,10 @@ jobs:
       - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v5
         id: deployment
+      - name: Vulnerability scan
+        uses: anchore/scan-action@v7
+        with:
+          path: "."
       - name: Generate SBOM
         uses: anchore/sbom-action@v0
 
